@@ -625,6 +625,5 @@ function savePickupSkills() {
 }
 
 function goToSheet(){
-  createCharacter();
   window.location.href = 'sheet.html';
 }
