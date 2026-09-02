@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body onload="initBuild();step1();">
+    <header>
+        <h1>The Witcher: TTRPG</h1>
+   </header>
+
+    <section class="step active" id="step1">
+        <div>
+        <h2>Choose Your Race</h2>
+        <div>
+            <button class="raceOption" id="raceHuman" onclick="selectRace('Human')">Human</button>
+            <button class="raceOption" id="raceElf" onclick="selectRace('Elf')">Elf</button>
+            <button class="raceOption" id="raceDwarf" onclick="selectRace('Dwarf')">Dwarf</button>
+            <button class="raceOption" id="raceWitcher" onclick="selectRace('Witcher')">Witcher</button>
+        </div>
+        <span id="raceDescription"></span>
+        </div>
+
+        <div>
+        <h2>Choose Your Profession</h2>
+        <div>
+            <button class="professionOption" id="professionBard" onclick="selectProfession('Bard')">Bard</button>
+            <button class="professionOption" id="professionCraftsman" onclick="selectProfession('Craftsman')">Craftsman</button>
+            <button class="professionOption" id="professionCriminal" onclick="selectProfession('Criminal')">Criminal</button>
+            <button class="professionOption" id="professionDoctor" onclick="selectProfession('Doctor')">Doctor</button>
+            <button class="professionOption" id="professionMage" onclick="selectProfession('Mage')">Mage</button>
+            <button class="professionOption" id="professionManAtArms" onclick="selectProfession('ManAtArms')">Man At Arms</button>
+            <button class="professionOption" id="professionMerchant" onclick="selectProfession('Merchant')">Merchant</button>
+            <button class="professionOption" id="professionPriest" onclick="selectProfession('Priest')">Priest</button>
+            <button class="professionOption" id="professionWitcher" onclick="selectProfession('Witcher')">Witcher</button>
+        </div>
+        <span id="professionDescription"></span>
+        <button id="next1" onclick="saveRaceAndProfession();renderProfessionDetails()">Next</button>
+        <div>
+    </section>
+
+<section class="step" id="step2">
+    <h2>Step 2</h2>
+    <p>Profession Details</p>
+
+    <h3 id="professionName"></h3>
+
+    <div class="profession-block">
+        <strong>Defining Skill:</strong>
+        <span id="definingSkill"></span>
+    </div>
+
+    <div class="profession-block">
+        <strong>Vigor:</strong>
+        <span id="vigor"></span>
+    </div>
+
+    <div class="profession-block">
+        <strong>Magical Perks:</strong>
+        <span id="magicalPerks"></span>
+    </div>
+
+    <div class="profession-block">
+        <strong>Skills</strong>
+        <p class="hint">You have 44 points to split between your Defining Skill and this Skill Package. At least 1 point in each.</p>
+        <p id="skillPointsRemaining">44</p>
+        <ul id="skillsList"></ul>
+    </div>
+
+    <div class="profession-block">
+        <strong>Gear</strong>
+        <p class="hint" id="gearPickHint"></p>
+        <ul id="gearList"></ul>
+    </div>
+
+    <div class="profession-block" id="specialBlock" style="display: none;">
+        <strong>Special</strong>
+        <ul id="specialList"></ul>
+    </div>
+
+    <button onclick="goToStep('step1')">Back</button>
+    <button onclick="saveProfessionDetails();checkIfWitcher();">Next</button>
+</section>
+
+    <section class="step" id="step3">
+        <h2>Step 3</h2>
+        <p>Attributes and Statistics</p>
+        <p id="witcherHint"></p>
+        <!-- There are 9 statistics to input 'manually'-->
+        <button onclick="randomizeAttributes()">Randomize Attributes</button>
+        <div class="attribute-block">
+            <label for="INT">Intelligence (INT):</label>
+            <input type="number" id="INT" name="INT" value="3">
+        </div>
+        <div class="attribute-block">
+            <label for="REF">Reflexes (REF):</label>
+            <input type="number" id="REF" name="REF" value="3">
+        </div>
+        <div class="attribute-block">
+            <label for="DEX">Dexterity (DEX):</label>
+            <input  type="number" id="DEX" name="DEX" value="3">
+        </div>
+        <div class="attribute-block">
+            <label for="BODY">Body (BODY):</label>
+            <input  type="number" id="BODY" name="BODY" value="3">
+        </div>
+        <div class="attribute-block">
+            <label for="SPD">Speed (SPD):</label>
+            <input type="number" id="SPD" name="SPD" value="3">
+        </div>
+        <div class="attribute-block">
+            <label for="CRA">Craft (CRA):</label>
+            <input type="number" id="CRA" name="CRA" value="3">
+        </div>
+        <div class="attribute-block">
+            <label for="EMP">Empathy (EMP):</label>
+            <input type="number" id="EMP" name="EMP" value="3">
+        </div>
+        <div class="attribute-block">
+            <label for="WILL">Will (WILL):</label>
+            <input type="number" id="WILL" name="WILL" value="3">
+        </div>
+        <div class="attribute-block">
+            <label for="LUCK">Luck (LUCK):</label>
+            <input type="number" id="LUCK" name="LUCK" value="3">
+        </div>
+        <button onclick=" goToStep('step2');renderProfessionDetails();">Back</button>
+        <button onclick="saveAttributes();goToStep('step4');renderPickupSkills();">Next</button>
+    </section>
+
+    <section class="step" id="step4">
+        <h2>Pick-Up Skills</h2>
+        <p>Points remaining: <span id="pickupPointsRemaining">0</span></p>
+
+        <ul id="pickupSkillsList"></ul>
+
+        <button onclick="goToStep('step3');checkIfWitcher();">Back</button>
+        <button onclick="savePickupSkills();goToSheet();">Finish</button>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 TWTTRPG. All rights reserved.</p>
+        <button onclick="debugPrint()">DEBUG AND PRINT</button>
+    </footer>
+</body>
+
+</html>

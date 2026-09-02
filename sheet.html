@@ -1,0 +1,100 @@
+<!-- sheet.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Character Sheet</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="sheet.css">
+</head>
+<body>
+
+  <button class="no-print" onclick="window.print()">Export as PDF</button>
+
+  <div class="sheet-page" id="sheetPage1">
+    <div class="sheet-col">
+      <table class="sheet-block">
+        <tr><td class="label">Name</td><td id="s-name"></td></tr>
+        <tr><td class="label">Race</td><td id="s-race"></td></tr>
+        <tr><td class="label">Gender</td><td id="s-gender"></td></tr>
+        <tr><td class="label">Age</td><td id="s-age"></td></tr>
+      </table>
+
+      <table class="sheet-block">
+        <tr><td class="label">Profession</td><td id="s-profession"></td></tr>
+        <tr><td class="label">Defining Skill</td><td id="s-definingSkillName"></td></tr>
+      </table>
+
+      <table class="sheet-block stat-block">
+        <tr><td class="label">INT</td><td id="s-INT"></td></tr>
+        <tr><td class="label">REF</td><td id="s-REF"></td></tr>
+        <tr><td class="label">DEX</td><td id="s-DEX"></td></tr>
+        <tr><td class="label">BODY</td><td id="s-BODY"></td></tr>
+        <tr><td class="label">SPD</td><td id="s-SPD"></td></tr>
+        <tr><td class="label">EMP</td><td id="s-EMP"></td></tr>
+        <tr><td class="label">CRA</td><td id="s-CRA"></td></tr>
+        <tr><td class="label">WILL</td><td id="s-WILL"></td></tr>
+        <tr><td class="label">LUCK</td><td id="s-LUCK"></td></tr>
+      </table>
+    </div>
+
+    <div class="sheet-col">
+      <table class="sheet-block stat-block">
+        <tr><td class="label">STUN</td><td id="s-STUN"></td></tr>
+        <tr><td class="label">RUN</td><td id="s-RUN"></td></tr>
+        <tr><td class="label">LEAP</td><td id="s-LEAP"></td></tr>
+        <tr><td class="label">HP</td><td id="s-HP"></td></tr>
+        <tr><td class="label">STA</td><td id="s-STA"></td></tr>
+        <tr><td class="label">ENC</td><td id="s-ENC"></td></tr>
+        <tr><td class="label">REC</td><td id="s-REC"></td></tr>
+        <tr><td class="label">Punch</td><td id="s-Punch"></td></tr>
+        <tr><td class="label">Kick</td><td id="s-Kick"></td></tr>
+      </table>
+
+      <div class="skill-group" id="intSkills">
+        <h4>Intelligence Skills</h4>
+        <table class="sheet-block"></table>
+      </div>
+      <div class="skill-group" id="reflexSkills">
+        <h4>Reflex Skills</h4>
+        <table class="sheet-block"></table>
+      </div>
+    </div>
+
+    <div class="sheet-col">
+      <div class="skill-group" id="dexSkills">
+        <h4>Dexterity Skills</h4>
+        <table class="sheet-block"></table>
+      </div>
+      <div class="skill-group" id="bodySkills">
+        <h4>Body Skills</h4>
+        <table class="sheet-block"></table>
+      </div>
+      <div class="skill-group" id="empathySkills">
+        <h4>Empathy Skills</h4>
+        <table class="sheet-block"></table>
+      </div>
+    </div>
+
+    <div class="sheet-col">
+      <div class="skill-group" id="craftSkills">
+        <h4>Craft Skills</h4>
+        <table class="sheet-block"></table>
+      </div>
+      <div class="skill-group" id="willSkills">
+        <h4>Will Skills</h4>
+        <table class="sheet-block"></table>
+      </div>
+      <table class="sheet-block">
+        <tr><td class="label">Reputation</td><td id="s-reputation"></td></tr>
+      </table>
+      <table class="sheet-block">
+        <tr><td class="label">Improvement Points</td><td id="s-ip"></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="sheet.js"></script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+
+/*
+.step{
+    display: none;
+}
+.step.active{
+    display: block;
+}
+
+.raceOption{
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background-color: red;
+}
+.raceOption.active{
+    background-color: green;
+}
+
+
+.professionOption{
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background-color: red;
+}
+.professionOption.active{
+    background-color: green;
+}
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root {
+  --bg: #0d0a08;
+  --panel: #1c1614;
+  --iron: #3a2f28;
+  --blood: #7a1f1f;
+  --blood-bright: #a52a1f;
+  --bone: #e4d9c4;
+  --bone-dim: #9c8f7a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0 20px 60px;
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse at top, rgba(122, 31, 31, 0.08), transparent 60%);
+  color: var(--bone);
+  font-family: 'EB Garamond', serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+header {
+  text-align: center;
+  padding: 48px 0 32px;
+  border-bottom: 2px solid var(--iron);
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 2.4rem;
+  letter-spacing: 0.03em;
+  color: var(--bone);
+  margin: 0;
+  text-shadow: 0 0 24px rgba(122, 31, 31, 0.4);
+}
+
+/* ---- Step sections ---- */
+
+.step {
+  display: none;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.step.active {
+  display: block;
+}
+
+.step h2 {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--bone);
+  border-left: 4px solid var(--blood);
+  padding-left: 14px;
+  margin-bottom: 24px;
+}
+
+.step h3 {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--blood-bright);
+  margin: 24px 0 8px;
+}
+
+/* ---- Profession / Attribute blocks ---- */
+
+.profession-block,
+.attribute-block {
+  background: var(--panel);
+  border: 1px solid var(--iron);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+
+.profession-block strong {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  color: var(--bone);
+  display: block;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+.hint {
+  color: var(--bone-dim);
+  font-style: italic;
+  font-size: 0.9rem;
+  margin: 4px 0 10px;
+}
+
+#skillPointsRemaining,
+#pickupPointsRemaining {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  color: var(--blood-bright);
+  margin: 4px 0 16px;
+}
+
+/* ---- Lists (skills, gear, special) ---- */
+
+.step ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.step li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--iron);
+}
+
+.step li:last-child {
+  border-bottom: none;
+}
+
+.step li strong {
+  font-family: 'EB Garamond', serif;
+  font-weight: 600;
+  color: var(--bone);
+}
+
+.step li span {
+  font-family: 'Cinzel', serif;
+  min-width: 24px;
+  text-align: center;
+  color: var(--blood-bright);
+}
+
+/* ---- Attribute inputs ---- */
+
+.attribute-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.attribute-block label {
+  font-weight: 600;
+  color: var(--bone);
+}
+
+.attribute-block input[type="number"] {
+  width: 64px;
+  background: var(--bg);
+  border: 1px solid var(--iron);
+  color: var(--bone);
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  padding: 6px 8px;
+  text-align: center;
+}
+
+.attribute-block input[type="number"]:focus {
+  outline: 2px solid var(--blood-bright);
+  outline-offset: 1px;
+}
+
+/* ---- Buttons, general ---- */
+
+button {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--bone);
+  background: var(--panel);
+  border: 1px solid var(--iron);
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+button:hover {
+  background: var(--iron);
+  border-color: var(--blood);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--blood-bright);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Next/Back navigation buttons */
+.step > button {
+  margin-top: 24px;
+  margin-right: 10px;
+}
+
+#next1 {
+  display: block;
+  margin-top: 32px;
+}
+
+/* +/- skill buttons: smaller, square */
+.step li button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* ---- Race / Profession selection buttons ---- */
+
+.raceOption,
+.professionOption {
+  margin: 4px 6px 4px 0;
+  background: var(--panel);
+  border: 1px solid var(--iron);
+}
+
+.raceOption.active,
+.professionOption.active {
+  background: var(--blood);
+  border-color: var(--blood-bright);
+  color: var(--bone);
+}
+
+#raceDescription,
+#professionDescription {
+  display: block;
+  color: var(--bone-dim);
+  font-style: italic;
+  margin: 12px 0 20px;
+  max-width: 60ch;
+}
+
+/* ---- Footer ---- */
+
+footer {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid var(--iron);
+  color: var(--bone-dim);
+  font-size: 0.85rem;
+}
+
+footer button {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  padding: 6px 14px;
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 16px;
+  }
+  header h1 {
+    font-size: 1.8rem;
+  }
+}
